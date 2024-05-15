@@ -14,6 +14,14 @@ public class Carro {
     private String marca;
     private String placa;
 
+    public Carro(int id, String modelo, String marca, String placa) {
+        this.id = id;
+        this.modelo = modelo;
+        this.marca = marca;
+        this.placa = placa;
+    }
+
+    
     public int getId() {
         return id;
     }

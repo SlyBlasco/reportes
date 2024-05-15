@@ -16,6 +16,15 @@ public class Registro {
     private boolean pagado;
     private int idCarro;
 
+    public Registro(int id, Date fecha, String estado, boolean pagado, int idCarro) {
+        this.id = id;
+        this.fecha = fecha;
+        this.estado = estado;
+        this.pagado = pagado;
+        this.idCarro = idCarro;
+    }
+
+    
     public int getId() {
         return id;
     }
