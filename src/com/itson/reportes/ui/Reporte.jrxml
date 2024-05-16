@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="108fe4e1-be93-4dd9-811b-03db1b5d8f11">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="c32f5a0d-dc8f-42b9-8364-4012b807b3c8"/>
+	<parameter name="fechaInicial" class="java.sql.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaFinal" class="java.sql.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 
+    registros.id AS No,
+    registros.fecha AS Fecha,
+    carros.placa AS Placa,
+    carros.marca AS Marca,
+    carros.modelo AS Modelo,
+    registros.estado AS Estado
+FROM 
+    registros
+JOIN 
+    carros ON registros.idcarro = carros.id
+WHERE 
+    registros.fecha BETWEEN $P{fechaInicial} AND $P{fechaFinal}
+]]>
+	</queryString>
+	<field name="No" class="java.lang.Integer"/>
+	<field name="Fecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Placa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Marca" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Modelo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Estado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="16" width="557" height="40" uuid="e355b388-2612-4ec2-a542-b41a71cde1db"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="23" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sistema de registro vehicular de estacionamiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="451" y="56" width="100" height="20" uuid="73268afe-d77b-4440-a9bd-be1be2bd7948"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[¡Bienvenido!]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="5" width="54" height="20" uuid="78e19202-bd23-4a5a-804f-19d2eb615bc1"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="57" y="5" width="64" height="20" uuid="6646aee2-df42-4c4f-93cb-52d2e548153f"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="5" width="95" height="20" uuid="b366eb67-8c7f-446e-9cff-0eb4001f0b84"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Placa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="242" y="5" width="95" height="20" uuid="ecd1542d-e19c-4ca0-ac41-813e66d16650"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="337" y="5" width="95" height="20" uuid="c1bd67e0-0ba3-48f1-82ad-b05a29ab28df"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Marca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="5" width="95" height="20" uuid="c2ecd2f0-b918-4150-af86-09df9af435bc"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="57" y="0" width="64" height="20" uuid="b544f439-58fc-44c1-b0c4-e0c2b85b35d1"/>
+				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="54" height="20" uuid="fe5686cb-d6a8-49f5-a921-5b0dafb58f38"/>
+				<textFieldExpression><![CDATA[$F{No}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="147" y="0" width="95" height="20" uuid="60970481-045e-4e86-a0df-13586d67f497"/>
+				<textFieldExpression><![CDATA[$F{Placa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="0" width="95" height="20" uuid="ea07ee3d-4883-4f49-8a41-c5fdc39ca027"/>
+				<textFieldExpression><![CDATA[$F{Modelo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="337" y="0" width="95" height="20" uuid="ea3bbd53-8cf6-423e-a593-22b8bfe6fae6"/>
+				<textFieldExpression><![CDATA[$F{Marca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="0" width="95" height="20" uuid="e869af41-af95-432f-a9a7-e7746d681c5f"/>
+				<textFieldExpression><![CDATA[$F{Estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="457" y="34" width="100" height="20" uuid="f96f041e-de29-4107-8769-d7e9ded2d97e"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="11" y="34" width="100" height="20" uuid="03ae02f7-2d3c-4546-a033-727fd191b73a"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

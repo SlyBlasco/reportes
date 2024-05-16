@@ -16,7 +16,7 @@ import java.util.List;
 public class DAOCarro {
     
     public void agregarCarro(Carro carro) throws SQLException {
-        String query = "INSERT INTO Carros (modelo, marca, placa) VALUES (?, ?, ?)";
+        String query = "INSERT INTO carros (modelo, marca, placa) VALUES (?, ?, ?)";
         try (Connection connection = MySQLConnector.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, carro.getModelo());

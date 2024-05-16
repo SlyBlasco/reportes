@@ -13,14 +13,12 @@ public class Registro {
     private int id;
     private Date fecha;
     private String estado;
-    private boolean pagado;
     private int idCarro;
 
-    public Registro(int id, Date fecha, String estado, boolean pagado, int idCarro) {
+    public Registro(int id, Date fecha, String estado, int idCarro) {
         this.id = id;
         this.fecha = fecha;
         this.estado = estado;
-        this.pagado = pagado;
         this.idCarro = idCarro;
     }
 
@@ -47,14 +45,6 @@ public class Registro {
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    public boolean isPagado() {
-        return pagado;
-    }
-
-    public void setPagado(boolean pagado) {
-        this.pagado = pagado;
     }
 
     public int getIdCarro() {
